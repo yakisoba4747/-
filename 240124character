@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()   {
+    srand((unsigned int)time(NULL));
+    
+    int intelligence, stamina, charisma;
+    int total_points = 20;
+    
+    
+    intelligence = rand() % (total_points - 1) + 1;
+    stamina = rand() % (total_points -intelligence) + 1;
+    charisma = total_points - intelligence - stamina;
+    
+    char *character_class;
+    if (intelligence >= stamina && intelligence >= charisma)
+        character_class = "Mage";
+    else if (stamina >= intelligence && stamina >= charisma)
+        character_class = "Knight";
+    else
+         character_class = "thirf";
+         
+    printf("class: %s\n", character_class);
+    printf("stats - INT: %d, STA: %d, CHA: %d\n", intelligence, stamina, charisma);
+    
+    
+
+    return 0;
+}
